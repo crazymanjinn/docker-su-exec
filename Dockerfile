@@ -4,4 +4,4 @@ RUN git clone https://aur.archlinux.org/su-exec.git && \
     makepkg -sf --noconfirm
 
 FROM crazymanjinn/archlinux
-COPY --from=builder /home/builduser/su-exec/su-exec-*-x86_64.pkg.tar.xz /tmp/pkgs
+COPY --from=builder /home/builduser/su-exec/su-exec-*-x86_64.pkg.tar.xz /tmp/pkgs/
