@@ -1,8 +1,8 @@
 FROM crazymanjinn/archlinux:devel as builder
-RUN git clone https://aur.archlinux.org/su-exec.git && \
+RUN sudo -u nobody git clone https://aur.archlinux.org/su-exec.git && \
     cd su-exec && \
-    makepkg -sf --noconfirm
+    sudo -u nobody makepkg -sf --noconfirm
 
 FROM crazymanjinn/archlinux
-COPY --from=builder /home/builduser/su-exec/su-exec-*-x86_64.pkg.tar.xz /tmp/pkgs/
+COPY --from=builder /tmp/su-exec/su-exec-*-x86_64.pkg.tar.xz /tmp/pkgs/
 COPY ./entrypoint.sh /tmp/pkgs
