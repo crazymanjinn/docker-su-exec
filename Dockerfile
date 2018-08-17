@@ -5,3 +5,4 @@ RUN git clone https://aur.archlinux.org/su-exec.git && \
 
 FROM crazymanjinn/archlinux
 COPY --from=builder /home/builduser/su-exec/su-exec-*-x86_64.pkg.tar.xz /tmp/pkgs/
+COPY ./entrypoint.sh /tmp/pkgs
